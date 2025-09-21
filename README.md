@@ -50,6 +50,9 @@ Exemplo: mvn test -Dcucumber.options="src/test/resources/features/Produtos.featu
 Rodar um cenário específico:
 Exemplo: mvn test -Dcucumber.options="--name 'Realizar busca de um produto'"
 
+Ou poderão ser executados por alguma IDE de sua preferência:
+IntelliJ IDEA, Visual Studio Code ou outros
+
 Contato
 
 Para dúvidas ou contribuições:
