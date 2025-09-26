@@ -34,10 +34,14 @@ mvn exec:java -e -Dexec.mainClass=com.microsoft.playwright.CLI install
 Estrutura dos Testes
 
 Cucumber Features:
-Localizadas na pasta src/test/resources/features, contém os arquivos `.feature` com os cenários de teste do Cucumber.
+Localizadas na pasta features
+Contêm os arquivos .feature com os cenários de teste do Cucumber
+Exemplo de arquivo: features/Pesquisar-Produto_Adicionar-ao-Carrinho.feature
 
 Steps Definitions:
-Localizadas em src/test/java/com/advancedonlineshopping/ProdutosSteps.java, definição dos steps do Cucumber para realizar ações no site.
+Localizadas em src/test/java/com/advancedonlineshopping
+Definem os steps do Cucumber que executam as ações no site
+Contêm os arquivos: ProdutosSteps.java e PaginaSetup.java
 
 Setup do Navegador:
 PaginaSetup.java configuração do ambiente Playwright (abrir/fechar navegador), ou seja, fornece uma instância de Page para os testes.
@@ -45,7 +49,9 @@ PaginaSetup.java configuração do ambiente Playwright (abrir/fechar navegador),
 Execução dos Testes
 
 Rodar todos os cenários: mvn test
-Exemplo: mvn test -Dcucumber.options="src/test/resources/features/Produtos.feature"
+
+Rodar uma feature específica:
+Exemplo: mvn test -Dcucumber.options="features/Pesquisar-Produto_Adicionar-ao-Carrinho.feature"
 
 Rodar um cenário específico:
 Exemplo: mvn test -Dcucumber.options="--name 'Realizar busca de um produto'"
