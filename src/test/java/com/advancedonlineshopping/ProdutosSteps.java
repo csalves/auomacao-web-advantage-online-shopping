@@ -13,7 +13,7 @@ public class ProdutosSteps {
         this.page = PaginaSetup.getPage();
     }
 
-    @Given("que acesso o site Advantage DEMO")
+    @Given("acessa o site Advantage DEMO")
     public void acessar_site_advantage_demo() {
         if (page == null) {
             page = PaginaSetup.getPage();
@@ -24,7 +24,7 @@ public class ProdutosSteps {
         waitFor(1000);
     }
 
-    @When("pesquiso por Tablets na barra de busca")
+    @When("pesquisa por Tablets na barra de busca")
     public void Clicar_em_pesquisar() {
         page.getByTitle("SEARCH").click();
         waitFor(3000);
@@ -50,7 +50,7 @@ public class ProdutosSteps {
         waitFor(3000);
     }
 
-    @When("seleciono o tablet desejado {string}")
+    @When("seleciona o tablet desejado {string}")
     public void selecionar_produto(String tabletModelo) {
         Locator produto = page.locator("text=/.*" + tabletModelo + ".*/i");
         produto.first().click();
@@ -73,7 +73,7 @@ public class ProdutosSteps {
         waitFor(2000);
     }
 
-    @When("adiciono no carrinho")
+    @When("adiciona no carrinho")
     public void adicionar_no_carrinho() {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("ADD TO CART")).click();
         waitFor(1000);
@@ -99,7 +99,7 @@ public class ProdutosSteps {
         waitFor(2000);
     }
 
-    @When("clico em checkout")
+    @When("realiza o checkout")
     public void clicar_em_checkout() {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("CHECKOUT ($1,009.00)")).click();
         waitFor(1000);
