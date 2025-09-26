@@ -44,7 +44,8 @@ Definem os steps do Cucumber que executam as ações no site
 Contêm os arquivos: ProdutosSteps.java e PaginaSetup.java
 
 Setup do Navegador:
-PaginaSetup.java configuração do ambiente Playwright (abrir/fechar navegador), ou seja, fornece uma instância de Page para os testes.
+PaginaSetup.java configuração do ambiente Playwright (abrir/fechar navegador), ou seja, fornece uma
+instância de Page para os testes.
 
 Execução dos Testes
 
