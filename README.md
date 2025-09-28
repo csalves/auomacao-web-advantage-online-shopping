@@ -22,17 +22,17 @@ node -v
 
 npm -v
 
-## 1-Clone do repositório:
+### 1-Clone do repositório:
 
 git clone https://github.com/csalves/auomacao-web-advantage-online-shopping
 
 cd AdvantageOnlineShopping
 
-## 2-Instale as dependências do Maven:
+### 2-Instale as dependências do Maven:
 
 mvn clean install
 
-## 3-Instale os navegadores do Playwright (necessário para execução dos testes):
+### 3-Instale os navegadores do Playwright (necessário para execução dos testes):
 
 mvn exec:java -e -Dexec.mainClass=com.microsoft.playwright.CLI install
 
