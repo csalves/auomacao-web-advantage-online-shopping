@@ -20,12 +20,13 @@ public class ProdutosSteps {
         }
 
         page.navigate("https://www.advantageonlineshopping.com/");
-
+        TestExecutionLogger.log("Acessar Site", "Site aberto com sucesso");
         waitFor(1000);
     }
 
     @When("pesquisa por Tablets na barra de busca")
-    public void Clicar_em_pesquisar() {
+    public void clicar_em_pesquisar() {
+        TestExecutionLogger.log("Pesquisar Produto", "Iniciando pesquisa por Tablets");
         page.getByTitle("SEARCH").click();
         waitFor(3000);
 
@@ -45,13 +46,14 @@ public class ProdutosSteps {
         page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Search")).fill("Tablets");
         waitFor(3000);
 
-        // Clica no produto desejado
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("HP ELITEPAD 1000 G2 TABLET")).click();
+        TestExecutionLogger.log("Pesquisar Produto", "Produto HP ELITEPAD 1000 G2 TABLET selecionado");
         waitFor(3000);
     }
 
     @When("seleciona o tablet desejado {string}")
     public void selecionar_produto(String tabletModelo) {
+        TestExecutionLogger.log("Selecionar Produto", "Selecionando o tablet: " + tabletModelo);
         Locator produto = page.locator("text=/.*" + tabletModelo + ".*/i");
         produto.first().click();
         waitFor(3000);
@@ -59,28 +61,34 @@ public class ProdutosSteps {
 
     @Then("o site direciona para a pagina do produto {string}")
     public void validar_pagina_produto(String produtoEsperado) {
-        Locator tituloProduto = page.getByRole(AriaRole.HEADING, new Page.GetByRoleOptions().setName(produtoEsperado)).first();
+        TestExecutionLogger.log("Validar Página Produto", "Validando página do produto: " + produtoEsperado);
+
+        Locator tituloProduto = page.getByRole(AriaRole.HEADING,
+                new Page.GetByRoleOptions().setName(produtoEsperado)).first();
         tituloProduto.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
 
         String textoEncontrado = tituloProduto.innerText().trim();
 
         if (!textoEncontrado.equalsIgnoreCase(produtoEsperado.trim())) {
-            throw new AssertionError(
-                    "Produto incorreto! Esperado: " + produtoEsperado + " | Encontrado: " + textoEncontrado
-            );
+            TestExecutionLogger.log("Validar Página Produto",
+                    "Produto incorreto! Esperado: " + produtoEsperado + " | Encontrado: " + textoEncontrado);
+            throw new AssertionError("Produto incorreto! Esperado: " + produtoEsperado + " | Encontrado: " + textoEncontrado);
         }
 
+        TestExecutionLogger.log("Validar Página Produto", "Produto validado com sucesso: " + produtoEsperado);
         waitFor(2000);
     }
 
     @When("adiciona no carrinho")
     public void adicionar_no_carrinho() {
+        TestExecutionLogger.log("Adicionar no Carrinho", "Adicionando produto ao carrinho");
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("ADD TO CART")).click();
         waitFor(1000);
     }
 
     @Then("o tablet {string} é apresentado no carrinho")
     public void validar_produto_no_carrinho(String produtoEsperado) {
+        TestExecutionLogger.log("Validar Carrinho", "Validando produto no carrinho: " + produtoEsperado);
         page.locator("#menuCart").click();
 
         Locator produtoCarrinho = page.locator("label.roboto-regular.productName.ng-binding")
@@ -91,22 +99,26 @@ public class ProdutosSteps {
         String textoEncontrado = produtoCarrinho.innerText().trim();
 
         if (!textoEncontrado.equalsIgnoreCase(produtoEsperado.trim())) {
-            throw new AssertionError(
-                    "Produto incorreto no carrinho! Esperado: " + produtoEsperado + " | Encontrado: " + textoEncontrado
-            );
+            TestExecutionLogger.log("Validar Carrinho",
+                    "Produto incorreto no carrinho! Esperado: " + produtoEsperado + " | Encontrado: " + textoEncontrado);
+            throw new AssertionError("Produto incorreto no carrinho! Esperado: " + produtoEsperado + " | Encontrado: " + textoEncontrado);
         }
 
+        TestExecutionLogger.log("Validar Carrinho", "Produto validado com sucesso no carrinho: " + produtoEsperado);
         waitFor(2000);
     }
 
     @When("realiza o checkout")
     public void clicar_em_checkout() {
+        TestExecutionLogger.log("Checkout", "Realizando checkout do carrinho");
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("CHECKOUT ($1,009.00)")).click();
         waitFor(1000);
     }
 
     @Then("o tablet {string} é apresentado na tela de pagamento")
     public void validar_produto_na_tela_pagamento(String produtoEsperado) {
+        TestExecutionLogger.log("Validar Tela de Pagamento", "Validando produto na tela de pagamento: " + produtoEsperado);
+
         Locator produtoPagamento = page.locator("#userCart")
                 .locator("h3.ng-binding", new Locator.LocatorOptions().setHasText(produtoEsperado))
                 .first();
@@ -116,15 +128,16 @@ public class ProdutosSteps {
         String textoEncontrado = produtoPagamento.innerText().trim();
 
         if (!textoEncontrado.equalsIgnoreCase(produtoEsperado.trim())) {
-            throw new AssertionError(
-                    "Produto incorreto na tela de pagamento! Esperado: " + produtoEsperado + " | Encontrado: " + textoEncontrado
-            );
+            TestExecutionLogger.log("Validar Tela de Pagamento",
+                    "Produto incorreto na tela de pagamento! Esperado: " + produtoEsperado + " | Encontrado: " + textoEncontrado);
+            throw new AssertionError("Produto incorreto na tela de pagamento! Esperado: " + produtoEsperado + " | Encontrado: " + textoEncontrado);
         }
 
+        TestExecutionLogger.log("Validar Tela de Pagamento", "Produto validado com sucesso na tela de pagamento: " + produtoEsperado);
         waitFor(2000);
     }
 
-    //Pausa a execução por um tempo fixo (em milissegundos).
+    // Pausa a execução por um tempo fixo (em milissegundos)
     private void waitFor(int milliseconds) {
         try {
             Thread.sleep(milliseconds);
