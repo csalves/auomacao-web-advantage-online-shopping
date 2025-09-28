@@ -39,20 +39,26 @@ mvn exec:java -e -Dexec.mainClass=com.microsoft.playwright.CLI install
 
 ## Estrutura dos Testes
 
-Cucumber Features:
+### Cucumber Features:
 
 Localizadas na pasta features
+
 Contêm os arquivos .feature com os cenários de teste do Cucumber
+
 Exemplo de arquivo: features/Pesquisar-Produto_Adicionar-ao-Carrinho.feature
 
-Steps Definitions:
+### Steps Definitions:
 
 Localizadas em src/test/java/com/advancedonlineshopping
+
 Definem os steps do Cucumber que executam as ações no site
 
 Contêm os arquivos:
+
 ProdutosSteps.java - ações de interação com o site e validações
+
 PaginaSetup.java - configuração do Playwright (abrir/fechar navegador, criar instância de Page e gravação de vídeos)
+
 TxtLogger.java - gera arquivos de log TXT por cenário
 
 ## Execução dos Testes
@@ -60,12 +66,15 @@ TxtLogger.java - gera arquivos de log TXT por cenário
 Rodar todos os cenários: mvn test
 
 Rodar uma feature específica:
+
 Exemplo: mvn test -Dcucumber.options="features/Pesquisar-Produto_Adicionar-ao-Carrinho.feature"
 
 Rodar um cenário específico:
+
 Exemplo: mvn test -Dcucumber.options="--name 'Realizar busca de um produto'"
 
 Ou poderão ser executados por alguma IDE de sua preferência:
+
 IntelliJ IDEA, Visual Studio Code ou outros
 
 ## Logs e Vídeos de Execução
@@ -75,9 +84,11 @@ Logs TXT: Cada cenário gera um arquivo TXT separado em target/logs/ com timesta
 Vídeos: Cada execução grava um vídeo da sessão em target/videos/, permitindo rever o comportamento real da automação.
 
 Exemplo de arquivo de log:
+
 target/logs/Scenario_Realizar_busca_de_um_produto_27092025_143210.txt
 
 Exemplo de arquivo de vídeo:
+
 target/videos/Scenario_Realizar_busca_de_um_produto_27092025_143210.webm
 
 ## Contato
