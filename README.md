@@ -79,6 +79,8 @@ IntelliJ IDEA, Visual Studio Code ou outros
 
 ## Logs e Vídeos de Execução
 
+Podem ser utilizados arquivos de evidências de testes.
+
 Logs TXT: Cada cenário gera um arquivo TXT separado em target/logs/ com timestamp no nome, registrando todos os passos e validações.
 
 Vídeos: Cada execução grava um vídeo da sessão em target/videos/, permitindo rever o comportamento real da automação.
