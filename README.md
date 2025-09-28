@@ -15,8 +15,11 @@ Além disso, cada execução gera logs em arquivo TXT separados por cenário e g
 Para verificar a instalação e suas versões, abra o terminal (Prompt de Comando, PowerShell ou Terminal do Linux/macOS) e digite os comandos abaixo:
 
 java -version
+
 mvn -version
+
 node -v
+
 npm -v
 
 1. Clone do repositório:
