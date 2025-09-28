@@ -13,65 +13,78 @@ Além disso, cada execução gera logs em arquivo TXT separados por cenário e g
 - **Node.js + npm**
 
 Para verificar a instalação e suas versões, abra o terminal (Prompt de Comando, PowerShell ou Terminal do Linux/macOS) e digite os comandos abaixo:
-
+```sh
 java -version
-
+```
+```sh
 mvn -version
-
+```
+```sh
 node -v
-
+```
+```sh
 npm -v
+```
 
-### 1-Clone do repositório:
-
+### 1. Clone do repositório:
+```sh
 git clone https://github.com/csalves/auomacao-web-advantage-online-shopping
+```
 
+```sh
 cd AdvantageOnlineShopping
+```
 
-### 2-Instale as dependências do Maven:
-
+### 2. Instale as dependências do Maven:
+```sh
 mvn clean install
 
-### 3-Instale os navegadores do Playwright (necessário para execução dos testes):
-
+```
+### 3. Instale os navegadores do Playwright (necessário para execução dos testes):
+```sh
 mvn exec:java -e -Dexec.mainClass=com.microsoft.playwright.CLI install
-
+```
 
 ## Estrutura dos Testes
 
 ### Cucumber Features:
 
-Localizadas na pasta features
-
-Contêm os arquivos .feature com os cenários de teste do Cucumber
+Localizadas na pasta features, contêm os arquivos .feature com os cenários de teste do Cucumber
 
 Exemplo de arquivo: features/Pesquisar-Produto_Adicionar-ao-Carrinho.feature
 
 ### Steps Definitions:
 
-Localizadas em src/test/java/com/advancedonlineshopping
-
-Definem os steps do Cucumber que executam as ações no site
+Localizadas em src/test/java/com/advancedonlineshopping, definem os steps do Cucumber que executam as ações no site
 
 Contêm os arquivos:
 
-ProdutosSteps.java - ações de interação com o site e validações
+**ProdutosSteps.java** - ações de interação com o site e validações
 
-PaginaSetup.java - configuração do Playwright (abrir/fechar navegador, criar instância de Page e gravação de vídeos)
+**PaginaSetup.java** - configuração do Playwright (abrir/fechar navegador, criar instância de Page e gravação de vídeos)
 
-TxtLogger.java - gera arquivos de log TXT por cenário
+**TxtLogger.java** - gera arquivos de log TXT por cenário
 
 ## Execução dos Testes
 
-Rodar todos os cenários: mvn test
+Rodar todos os cenários: 
+```sh
+mvn test
+```
 
 Rodar uma feature específica:
 
-Exemplo: mvn test -Dcucumber.options="features/Pesquisar-Produto_Adicionar-ao-Carrinho.feature"
+Exemplo:
+```sh
+mvn test -Dcucumber.options="features/Pesquisar-Produto_Adicionar-ao-Carrinho.feature"
+```
 
 Rodar um cenário específico:
 
-Exemplo: mvn test -Dcucumber.options="--name 'Realizar busca de um produto'"
+Exemplo:
+```sh
+mvn test -Dcucumber.options="--name 'Realizar busca de um produto'"
+```
 
 Ou poderão ser executados por alguma IDE de sua preferência:
 
@@ -81,9 +94,9 @@ IntelliJ IDEA, Visual Studio Code ou outros
 
 Podem ser utilizados arquivos de evidências de testes.
 
-Logs TXT: Cada cenário gera um arquivo TXT separado em target/logs/ com timestamp no nome, registrando todos os passos e validações.
+**Logs TXT**: Cada cenário gera um arquivo TXT separado em target/logs/ com timestamp no nome, registrando todos os passos e validações.
 
-Vídeos: Cada execução grava um vídeo da sessão em target/videos/, permitindo rever o comportamento real da automação.
+**Vídeos**: Cada execução grava um vídeo da sessão em target/videos/, permitindo rever o comportamento real da automação.
 
 Exemplo de arquivo de log:
 
@@ -95,7 +108,7 @@ target/videos/Scenario_Realizar_busca_de_um_produto_27092025_143210.webm
 
 ## Contato
 
-Para dúvidas ou contribuições:
+### Para dúvidas ou contribuições:
 
 Desenvolvedor: Claudio Alves
 
