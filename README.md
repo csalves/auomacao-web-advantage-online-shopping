@@ -22,21 +22,22 @@ node -v
 
 npm -v
 
-1. Clone do repositório:
+## 1-Clone do repositório:
 
 git clone https://github.com/csalves/auomacao-web-advantage-online-shopping
+
 cd AdvantageOnlineShopping
 
-2. Instale as dependências do Maven:
+## 2-Instale as dependências do Maven:
 
 mvn clean install
 
-3. Instale os navegadores do Playwright (necessário para execução dos testes):
+## 3-Instale os navegadores do Playwright (necessário para execução dos testes):
 
 mvn exec:java -e -Dexec.mainClass=com.microsoft.playwright.CLI install
 
 
-Estrutura dos Testes
+## Estrutura dos Testes
 
 Cucumber Features:
 
@@ -54,7 +55,7 @@ ProdutosSteps.java - ações de interação com o site e validações
 PaginaSetup.java - configuração do Playwright (abrir/fechar navegador, criar instância de Page e gravação de vídeos)
 TxtLogger.java - gera arquivos de log TXT por cenário
 
-Execução dos Testes
+## Execução dos Testes
 
 Rodar todos os cenários: mvn test
 
@@ -67,7 +68,7 @@ Exemplo: mvn test -Dcucumber.options="--name 'Realizar busca de um produto'"
 Ou poderão ser executados por alguma IDE de sua preferência:
 IntelliJ IDEA, Visual Studio Code ou outros
 
-Logs e Vídeos de Execução
+## Logs e Vídeos de Execução
 
 Logs TXT: Cada cenário gera um arquivo TXT separado em target/logs/ com timestamp no nome, registrando todos os passos e validações.
 
@@ -79,7 +80,7 @@ target/logs/Scenario_Realizar_busca_de_um_produto_27092025_143210.txt
 Exemplo de arquivo de vídeo:
 target/videos/Scenario_Realizar_busca_de_um_produto_27092025_143210.webm
 
-Contato
+## Contato
 
 Para dúvidas ou contribuições:
 
