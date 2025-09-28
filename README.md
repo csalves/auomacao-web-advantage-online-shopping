@@ -57,6 +57,7 @@ Exemplo de arquivo: features/Pesquisar-Produto_Adicionar-ao-Carrinho.feature
 
 Localizadas em src/test/java/com/advancedonlineshopping, definem os steps do Cucumber que executam as ações no site
 
+
 Contêm os arquivos:
 
 **ProdutosSteps.java** - ações de interação com o site e validações
@@ -86,6 +87,7 @@ Exemplo:
 mvn test -Dcucumber.options="--name 'Realizar busca de um produto'"
 ```
 
+
 Ou poderão ser executados por alguma IDE de sua preferência:
 
 IntelliJ IDEA, Visual Studio Code ou outros
@@ -97,6 +99,7 @@ Podem ser utilizados arquivos de evidências de testes.
 **Logs TXT**: Cada cenário gera um arquivo TXT separado em target/logs/ com timestamp no nome, registrando todos os passos e validações.
 
 **Vídeos**: Cada execução grava um vídeo da sessão em target/videos/, permitindo rever o comportamento real da automação.
+
 
 Exemplo de arquivo de log:
 
