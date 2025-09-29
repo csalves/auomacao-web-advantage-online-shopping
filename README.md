@@ -68,27 +68,7 @@ Contêm os arquivos:
 
 ## Execução dos Testes
 
-Rodar todos os cenários: 
-```sh
-mvn test
-```
-
-Rodar uma feature específica:
-
-Exemplo:
-```sh
-mvn test -Dcucumber.options="features/Pesquisar-Produto_Adicionar-ao-Carrinho.feature"
-```
-
-Rodar um cenário específico:
-
-Exemplo:
-```sh
-mvn test -Dcucumber.options="--name 'Realizar busca de um produto'"
-```
-
-
-Ou poderão ser executados por alguma IDE de sua preferência:
+Os testes poderão ser executados por alguma IDE de sua preferência:
 
 IntelliJ IDEA, Visual Studio Code ou outros
 
