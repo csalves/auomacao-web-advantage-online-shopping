@@ -51,7 +51,7 @@ mvn exec:java -e -Dexec.mainClass=com.microsoft.playwright.CLI install
 
 Localizadas na pasta features, contêm os arquivos .feature com os cenários de teste do Cucumber
 
-Exemplo de arquivo: features/Pesquisar-Produto_Adicionar-ao-Carrinho.feature
+Exemplo de arquivo: src/test/resources/features/Pesquisar-Produto_Adicionar-ao-Carrinho.feature
 
 ### Steps Definitions:
 

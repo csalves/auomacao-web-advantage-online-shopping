@@ -4,6 +4,9 @@ import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.WaitForSelectorState;
 import io.cucumber.java.en.*;
+import io.cucumber.java.pt.Dado;
+import io.cucumber.java.pt.Então;
+import io.cucumber.java.pt.Quando;
 
 public class ProdutosSteps {
     private Page page;
@@ -13,7 +16,7 @@ public class ProdutosSteps {
         this.page = PaginaSetup.getPage();
     }
 
-    @Given("acessa o site Advantage DEMO")
+    @Dado("acessa o site Advantage DEMO")
     public void acessar_site_advantage_demo() {
         if (page == null) {
             page = PaginaSetup.getPage();
@@ -24,7 +27,7 @@ public class ProdutosSteps {
         waitFor(1000);
     }
 
-    @When("pesquisa por Tablets na barra de busca")
+    @Quando("pesquisa por Tablets na barra de busca")
     public void clicar_em_pesquisar() {
         TestExecutionLogger.log("Pesquisar Produto", "Iniciando pesquisa por Tablets");
         page.getByTitle("SEARCH").click();
@@ -51,7 +54,7 @@ public class ProdutosSteps {
         waitFor(3000);
     }
 
-    @When("seleciona o tablet desejado {string}")
+    @Quando("seleciona o tablet desejado {string}")
     public void selecionar_produto(String tabletModelo) {
         TestExecutionLogger.log("Selecionar Produto", "Selecionando o tablet: " + tabletModelo);
         Locator produto = page.locator("text=/.*" + tabletModelo + ".*/i");
@@ -59,7 +62,7 @@ public class ProdutosSteps {
         waitFor(3000);
     }
 
-    @Then("o site direciona para a pagina do produto {string}")
+    @Então("o site direciona para a pagina do produto {string}")
     public void validar_pagina_produto(String produtoEsperado) {
         TestExecutionLogger.log("Validar Página Produto", "Validando página do produto: " + produtoEsperado);
 
@@ -79,14 +82,14 @@ public class ProdutosSteps {
         waitFor(2000);
     }
 
-    @When("adiciona no carrinho")
+    @Quando("adiciona no carrinho")
     public void adicionar_no_carrinho() {
         TestExecutionLogger.log("Adicionar no Carrinho", "Adicionando produto ao carrinho");
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("ADD TO CART")).click();
         waitFor(1000);
     }
 
-    @Then("o tablet {string} é apresentado no carrinho")
+    @Então("o tablet {string} é apresentado no carrinho")
     public void validar_produto_no_carrinho(String produtoEsperado) {
         TestExecutionLogger.log("Validar Carrinho", "Validando produto no carrinho: " + produtoEsperado);
         page.locator("#menuCart").click();
@@ -108,14 +111,14 @@ public class ProdutosSteps {
         waitFor(2000);
     }
 
-    @When("realiza o checkout")
+    @Quando("realiza o checkout")
     public void clicar_em_checkout() {
         TestExecutionLogger.log("Checkout", "Realizando checkout do carrinho");
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("CHECKOUT ($1,009.00)")).click();
         waitFor(1000);
     }
 
-    @Then("o tablet {string} é apresentado na tela de pagamento")
+    @Então("o tablet {string} é apresentado na tela de pagamento")
     public void validar_produto_na_tela_pagamento(String produtoEsperado) {
         TestExecutionLogger.log("Validar Tela de Pagamento", "Validando produto na tela de pagamento: " + produtoEsperado);
 
