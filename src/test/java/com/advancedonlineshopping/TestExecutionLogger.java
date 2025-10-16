@@ -13,10 +13,7 @@ public class TestExecutionLogger {
     private static String reportPath;
 
     // Inicializa pastas
-    public static void criarPastas() {
-        File reportsDir = new File("target/cucumber-reports");
-        if (!reportsDir.exists()) reportsDir.mkdirs();
-
+    public static void criarPasta() {
         File logsDir = new File("target/logs");
         if (!logsDir.exists()) logsDir.mkdirs();
     }
@@ -24,7 +21,7 @@ public class TestExecutionLogger {
     // Inicializa arquivo de log único por execução
     static {
         try {
-            criarPastas();
+            criarPasta();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMyyyy_HHmmss");
             String timestamp = LocalDateTime.now().format(formatter);
             reportPath = "target/logs/test-execution-" + timestamp + ".txt";
